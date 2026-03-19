@@ -1,0 +1,181 @@
+{
+  "common": {
+    "appName": "WardnMesh",
+    "loading": "載入中...",
+    "error": "錯誤",
+    "success": "成功",
+    "next": "下一步",
+    "back": "上一步",
+    "finish": "完成",
+    "cancel": "取消",
+    "close": "關閉",
+    "save": "儲存",
+    "activate": "啟用",
+    "deactivate": "停用"
+  },
+  "activation": {
+    "title": "歡迎使用 WardnMesh",
+    "subtitle": "AI 代理安全監控",
+    "apiKeyLabel": "輸入您的 API 金鑰",
+    "apiKeyPlaceholder": "sk_live_xxxxxxxxxxxxxxxx",
+    "apiKeyError": "請輸入您的 API 金鑰",
+    "invalidKeyError": "無效的 API 金鑰，請檢查後重試。",
+    "activateButton": "啟用 WardnMesh",
+    "activating": "啟用中...",
+    "divider": "或",
+    "noAccountYet": "還沒有帳號？",
+    "signUpButton": "免費註冊",
+    "signUpSubtext": "從免費方案開始 - 無需信用卡",
+    "needHelp": "需要幫助？查看文檔"
+  },
+  "setupWizard": {
+    "welcome": {
+      "title": "歡迎使用 WardnMesh",
+      "subtitle": "讓我們用 3 個簡單步驟完成設置",
+      "feature1Title": "即時防護",
+      "feature1Desc": "即時監控並攔截威脅",
+      "feature2Title": "即時警報",
+      "feature2Desc": "攻擊被攔截時立即收到通知",
+      "feature3Title": "使用分析",
+      "feature3Desc": "追蹤您的代理安全指標",
+      "getStarted": "開始使用"
+    },
+    "systemCheck": {
+      "title": "系統檢查",
+      "subtitle": "驗證您的環境",
+      "checking": "檢查系統中...",
+      "os": "作業系統",
+      "arch": "架構",
+      "cli": "WardnMesh CLI",
+      "node": "Node.js",
+      "python": "Python",
+      "installed": "已安裝",
+      "notInstalled": "未安裝",
+      "notFound": "未找到",
+      "version": "版本",
+      "checking_status": "檢查中...",
+      "scanPrompt": "點擊下方按鈕掃描您的系統",
+      "scanning": "掃描中...",
+      "scanButton": "掃描系統",
+      "continueButton": "繼續"
+    },
+    "cliInstall": {
+      "title": "安裝 CLI",
+      "subtitle": "CLI 會即時監控您的代理",
+      "alreadyInstalled": "CLI 已安裝",
+      "installed": "CLI 已安裝",
+      "version": "版本",
+      "platform": "平台",
+      "whatWillBeInstalled": "將要安裝的內容",
+      "cliBinary": "WardnMesh CLI 執行檔",
+      "pathConfig": "PATH 配置",
+      "pathNote": "安裝後您可能需要重新啟動終端機，PATH 變更才會生效。",
+      "installButton": "安裝 WardnMesh CLI",
+      "installing": "安裝中...",
+      "installSuccess": "CLI 安裝成功！",
+      "installError": "安裝失敗，請重試。",
+      "installedPath": "安裝位置：",
+      "versionInstalled": "版本：",
+      "pathInstructions": "加入 PATH",
+      "skipStep": "跳過此步驟（稍後安裝）",
+      "continueButton": "繼續"
+    },
+    "sdkInstall": {
+      "title": "安裝 SDK（選用）",
+      "subtitle": "選擇您想安裝的 SDK",
+      "nodeTitle": "Node.js SDK",
+      "nodeDesc": "適用於 JavaScript/TypeScript AI 代理",
+      "pythonTitle": "Python SDK",
+      "pythonDesc": "適用於 Python AI 代理（包含 ML 偵測）",
+      "nodeNotDetected": "未偵測到 Node.js",
+      "pythonNotDetected": "未偵測到 Python",
+      "installButton": "安裝 {{sdk}} SDK",
+      "installButtonText": "安裝",
+      "installing": "安裝中...",
+      "installed": "已安裝",
+      "installError": "安裝失敗",
+      "tip": "您可以跳過此步驟，稍後從控制台安裝 SDK。",
+      "continueButton": "繼續",
+      "skipForNow": "暫時跳過",
+      "skipButton": "跳過 SDK 安裝"
+    },
+    "auth": {
+      "title": "驗證",
+      "subtitle": "輸入您的 API 金鑰以啟用防護",
+      "apiKeyLabel": "API 金鑰",
+      "apiKeyPlaceholder": "sk_live_xxxxxxxxxxxxxxxx",
+      "apiKeyError": "API 金鑰必須以 \"sk_live_\" 或 \"sk_test_\" 開頭",
+      "helpText": "您可以在",
+      "dashboardLink": "儀表板設定",
+      "noAccount": "還沒有帳號？",
+      "signUpLink": "免費註冊",
+      "activateButton": "啟用",
+      "validating": "驗證中..."
+    },
+    "complete": {
+      "title": "設置完成！",
+      "subtitle": "WardnMesh 現在正在保護您的 AI 代理",
+      "nextSteps": "後續步驟",
+      "step1Title": "執行 AI 代理",
+      "step1Desc": "啟動 Claude Code 或任何 AI 工具",
+      "step2Title": "查看系統匣圖示",
+      "step2Desc": "點擊 WardnMesh 圖示查看即時統計",
+      "step3Title": "查看儀表板",
+      "step3Desc": "開啟 local Dashboard 查看詳細分析",
+      "openDashboard": "開啟儀表板",
+      "finishButton": "完成設置"
+    }
+  },
+  "trayPanel": {
+    "notActivated": "未啟用",
+    "activatedTitle": "WardnMesh 已啟用",
+    "protectedTitle": "已防護",
+    "unprotectedTitle": "未防護",
+    "toggleProtection": "切換防護",
+    "protectionLevel": "防護等級",
+    "protectionLevels": {
+      "LOW": "低",
+      "MEDIUM": "中",
+      "HIGH": "高"
+    },
+    "stats": {
+      "blockedToday": "今日攔截",
+      "toolCalls": "工具調用",
+      "violations": "違規"
+    },
+    "violations": {
+      "title": "最近違規",
+      "empty": "未偵測到違規",
+      "threatLevel": "威脅等級",
+      "threatLevels": {
+        "CRITICAL": "嚴重",
+        "HIGH": "高",
+        "MEDIUM": "中",
+        "LOW": "低"
+      },
+      "action": "動作",
+      "actions": {
+        "BLOCKED": "已攔截",
+        "LOGGED": "已記錄",
+        "ALLOWED": "已允許"
+      }
+    },
+    "menu": {
+      "openDashboard": "開啟儀表板",
+      "settings": "設定",
+      "deactivate": "停用"
+    }
+  },
+  "notifications": {
+    "threatBlocked": "🛡️ WardnMesh 威脅已攔截",
+    "threatMessage": "{{level}} 威脅：{{tool}} - {{reason}}"
+  },
+  "errors": {
+    "generic": "發生錯誤，請重試。",
+    "networkError": "網路錯誤，請檢查您的連線。",
+    "apiKeyInvalid": "無效的 API 金鑰",
+    "apiKeyRevoked": "API 金鑰已被撤銷或暫停",
+    "tooManyAttempts": "嘗試次數過多，請稍候。",
+    "activationFailed": "啟用失敗，請重試。"
+  }
+}

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WardnMesh - AI Agent Security Scanner</title>
+<meta name="description" content="Real-time threat detection for AI coding tools. Wraps AI agents, scans I/O, blocks dangerous operations. Local-first, open source.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0e14;--bg2:#111820;--bg3:#1a2230;
+  --text:#c5cdd8;--text-dim:#5c6a7a;--text-bright:#e8ecf1;
+  --green:#22c55e;--green-dim:#15803d;--green-glow:rgba(34,197,94,.15);
+  --red:#ef4444;--amber:#f59e0b;--blue:#3b82f6;
+  --border:#1e2a3a;
+  --mono:'JetBrains Mono',monospace;--sans:'Instrument Sans',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;overflow-x:hidden}
+a{color:var(--green);text-decoration:none;transition:opacity .2s}
+a:hover{opacity:.8}
+
+/* Scanline overlay */
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.03) 2px,rgba(0,0,0,.03) 4px);
+}
+
+/* Layout */
+.container{max-width:960px;margin:0 auto;padding:0 24px}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;
+  background:rgba(10,14,20,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+nav .container{display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--mono);font-weight:700;font-size:16px;color:var(--green);letter-spacing:-.5px}
+.logo span{color:var(--text-dim)}
+nav ul{display:flex;gap:28px;list-style:none}
+nav a{color:var(--text-dim);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;transition:color .2s}
+nav a:hover{color:var(--text-bright);opacity:1}
+
+/* Hero */
+.hero{padding:160px 0 80px;text-align:center;position:relative}
+.hero::before{content:'';position:absolute;top:80px;left:50%;transform:translateX(-50%);width:600px;height:600px;
+  background:radial-gradient(circle,var(--green-glow) 0%,transparent 70%);pointer-events:none}
+.hero h1{font-family:var(--sans);font-size:clamp(36px,5vw,56px);font-weight:700;color:var(--text-bright);
+  line-height:1.15;margin-bottom:20px;position:relative}
+.hero h1 em{font-style:normal;color:var(--green)}
+.hero p{font-size:18px;color:var(--text-dim);max-width:540px;margin:0 auto 40px}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:4px 14px;border-radius:20px;font-size:12px;font-family:var(--mono);
+  background:var(--green-glow);color:var(--green);border:1px solid rgba(34,197,94,.2);margin-bottom:24px}
+.badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.cta-group{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{padding:12px 28px;border-radius:8px;font-size:14px;font-weight:600;font-family:var(--sans);cursor:pointer;
+  border:1px solid transparent;transition:all .2s}
+.btn-primary{background:var(--green);color:#0a0e14;border-color:var(--green)}
+.btn-primary:hover{background:#16a34a;opacity:1}
+.btn-ghost{background:transparent;color:var(--text);border-color:var(--border)}
+.btn-ghost:hover{border-color:var(--text-dim);color:var(--text-bright);opacity:1}
+
+/* Terminal demo */
+.terminal{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;
+  max-width:680px;margin:60px auto 0;text-align:left;position:relative;
+  box-shadow:0 0 80px rgba(34,197,94,.06),0 24px 48px rgba(0,0,0,.4)}
+.terminal-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:var(--bg3);border-bottom:1px solid var(--border)}
+.terminal-dot{width:10px;height:10px;border-radius:50%}
+.terminal-dot:nth-child(1){background:#ef4444}.terminal-dot:nth-child(2){background:#f59e0b}.terminal-dot:nth-child(3){background:#22c55e}
+.terminal-title{margin-left:8px;font-family:var(--mono);font-size:11px;color:var(--text-dim)}
+.terminal-body{padding:20px;font-family:var(--mono);font-size:13px;line-height:1.8;min-height:200px}
+.terminal-body .prompt{color:var(--green)}
+.terminal-body .cmd{color:var(--text-bright)}
+.terminal-body .output{color:var(--text-dim)}
+.terminal-body .warn{color:var(--amber)}
+.terminal-body .danger{color:var(--red)}
+.terminal-body .success{color:var(--green)}
+.terminal-body .line{opacity:0;animation:typeIn .3s ease forwards}
+@keyframes typeIn{to{opacity:1}}
+
+/* Sections */
+section{padding:80px 0}
+section h2{font-size:28px;font-weight:700;color:var(--text-bright);margin-bottom:12px}
+section h2 span{color:var(--green)}
+section .subtitle{color:var(--text-dim);margin-bottom:48px;font-size:16px}
+
+/* Features grid */
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.feature{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:28px;transition:border-color .3s}
+.feature:hover{border-color:rgba(34,197,94,.3)}
+.feature-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;
+  margin-bottom:16px;font-size:18px;background:var(--bg3)}
+.feature h3{font-size:15px;font-weight:600;color:var(--text-bright);margin-bottom:8px}
+.feature p{font-size:13px;color:var(--text-dim);line-height:1.6}
+
+/* Stats */
+.stats{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;padding:40px 0;
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stat{text-align:center}
+.stat-num{font-family:var(--mono);font-size:32px;font-weight:700;color:var(--green)}
+.stat-label{font-size:12px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+
+/* Commands table */
+.cmd-table{width:100%;border-collapse:collapse;font-size:14px}
+.cmd-table th{text-align:left;padding:12px 16px;color:var(--text-dim);font-size:11px;text-transform:uppercase;
+  letter-spacing:1.5px;border-bottom:1px solid var(--border)}
+.cmd-table td{padding:12px 16px;border-bottom:1px solid var(--border)}
+.cmd-table td:first-child{font-family:var(--mono);color:var(--green);white-space:nowrap}
+.cmd-table tr:last-child td{border-bottom:none}
+.cmd-table tr:hover td{background:rgba(34,197,94,.03)}
+
+/* Architecture */
+.arch{font-family:var(--mono);font-size:12px;line-height:1.8;color:var(--text-dim);
+  background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:24px;overflow-x:auto}
+.arch .hl{color:var(--green)}
+.arch .dim{color:var(--text-dim)}
+
+/* Install */
+.install-box{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:24px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.install-cmd{font-family:var(--mono);font-size:16px;color:var(--green)}
+.install-cmd span{color:var(--text-dim)}
+
+/* Footer */
+footer{padding:40px 0;border-top:1px solid var(--border);text-align:center}
+footer p{font-size:12px;color:var(--text-dim)}
+footer a{color:var(--text-dim)}
+
+/* Mobile */
+@media(max-width:640px){
+  nav ul{gap:16px}
+  .hero{padding:120px 0 60px}
+  .stats{gap:24px}
+  .install-box{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="logo">wardn<span>mesh</span></div>
+    <ul>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#commands">CLI</a></li>
+      <li><a href="#install">Install</a></li>
+      <li><a href="https://github.com/PCIRCLE-AI/wardnmesh">GitHub</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="badge">Open Source &middot; Local-First</div>
+    <h1>Security scanner for<br><em>AI coding tools</em></h1>
+    <p>Wraps AI agents like Claude Code, intercepting I/O in real-time to detect and block dangerous operations before they execute.</p>
+    <div class="cta-group">
+      <a href="#install" class="btn btn-primary">Get Started</a>
+      <a href="https://github.com/PCIRCLE-AI/wardnmesh" class="btn btn-ghost">View Source</a>
+    </div>
+
+    <div class="terminal">
+      <div class="terminal-bar">
+        <div class="terminal-dot"></div><div class="terminal-dot"></div><div class="terminal-dot"></div>
+        <span class="terminal-title">Terminal</span>
+      </div>
+      <div class="terminal-body" id="term"></div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="stats">
+    <div class="stat"><div class="stat-num">243</div><div class="stat-label">Threat Rules</div></div>
+    <div class="stat"><div class="stat-num">&lt;1ms</div><div class="stat-label">Scan Latency</div></div>
+    <div class="stat"><div class="stat-num">0</div><div class="stat-label">Cloud Dependencies</div></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Local Data</div></div>
+  </div>
+</div>
+
+<section id="features">
+  <div class="container">
+    <h2>Why <span>WardnMesh</span></h2>
+    <p class="subtitle">AI tools are powerful but unguarded. WardnMesh adds a security layer without changing your workflow.</p>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">&#x1f6e1;</div>
+        <h3>243 Bundled Threat Rules</h3>
+        <p>Detects code injection, command injection, data exfiltration, privilege escalation, and more with regex pattern matching.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">&#x26a1;</div>
+        <h3>Sub-millisecond Scanning</h3>
+        <p>Transform stream architecture scans every I/O chunk against all rules in under 1ms. Zero perceptible latency.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">&#x1f512;</div>
+        <h3>Fail-Closed Design</h3>
+        <p>Timeout always means block. No severity level auto-allows. If the system can't confirm, it blocks.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">&#x1f4bb;</div>
+        <h3>Terminal Confirmation Prompts</h3>
+        <p>Built-in terminal prompts for threat confirmation. No extra app needed. Experimental desktop app (Tauri) available for native popups.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">&#x1f4be;</div>
+        <h3>Local SQLite Audit Trail</h3>
+        <p>Every scan, decision, and block is logged locally. Query your history with wardn audit. Nothing leaves your machine.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">&#x1f310;</div>
+        <h3>Fully Air-Gapped</h3>
+        <p>No telemetry, no cloud sync, no accounts, no API keys. Works completely offline after installation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="commands">
+  <div class="container">
+    <h2>CLI <span>Commands</span></h2>
+    <p class="subtitle">Everything you need, nothing you don't.</p>
+    <table class="cmd-table">
+      <thead><tr><th>Command</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>wardn run &lt;cmd&gt;</td><td>Wrap any command with real-time threat detection</td></tr>
+        <tr><td>wardn status</td><td>Show rules count, database info, connection status</td></tr>
+        <tr><td>wardn rules list</td><td>List all 243 threat rules with severity and category</td></tr>
+        <tr><td>wardn rules enable/disable</td><td>Toggle individual rules on or off</td></tr>
+        <tr><td>wardn audit</td><td>Query the local audit log with filters</td></tr>
+        <tr><td>wardn decisions</td><td>View and manage cached allow/block decisions</td></tr>
+        <tr><td>wardn doctor</td><td>System health check and diagnostics</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>How It <span>Works</span></h2>
+    <p class="subtitle">Three layers between AI output and your system.</p>
+    <div class="arch">
+<span class="hl">$</span> wardn run claude
+<br><br>
+<span class="dim">  1.</span> Spawns subprocess with piped stdio
+<br><span class="dim">  2.</span> Each chunk scanned by <span class="hl">ScanPipeline</span> (243 rules, &lt;1ms)
+<br><span class="dim">  3.</span> Violation? &rarr; <span class="hl">ConfirmationRequester</span>
+<br><span class="dim">     a.</span> Check decision cache (session &rarr; project &rarr; always)
+<br><span class="dim">     b.</span> Cache miss &rarr; Terminal prompt (or experimental Desktop popup)
+<br><span class="dim">     c.</span> Timeout &rarr; <span style="color:var(--red)">BLOCK</span> (fail-closed)
+<br><span class="dim">  4.</span> Decision logged to <span class="hl">SQLite</span> (~/.wardnmesh/wardnmesh.db)
+<br><span class="dim">  5.</span> Allow &rarr; pass chunk | Block &rarr; drop chunk
+    </div>
+  </div>
+</section>
+
+<section id="install">
+  <div class="container">
+    <h2>Get <span>Started</span></h2>
+    <p class="subtitle">One command to install. One command to protect.</p>
+    <div class="install-box">
+      <div class="install-cmd"><span>$</span> npm install -g @pcircle/wardnmesh</div>
+      <a href="https://github.com/PCIRCLE-AI/wardnmesh" class="btn btn-primary">View on GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>WardnMesh &middot; Open Source (AGPL-3.0) &middot; <a href="https://github.com/PCIRCLE-AI/wardnmesh">GitHub</a></p>
+  </div>
+</footer>
+
+<script>
+// Terminal animation
+const lines = [
+  {type:'prompt',text:'$ '},
+  {type:'cmd',text:'wardn run claude'},
+  {type:'output',text:''},
+  {type:'success',text:'  243 threat rules loaded (< 1ms scan latency)'},
+  {type:'output',text:'  Spawning subprocess: claude'},
+  {type:'output',text:'  Scanning stdin/stdout...'},
+  {type:'output',text:''},
+  {type:'danger',text:'  THREAT DETECTED: rm -rf / --no-preserve-root'},
+  {type:'warn',text:'  Rule: wm-cmd-003 [critical] Command Injection'},
+  {type:'output',text:''},
+  {type:'warn',text:'  Allow? [N/y/s=session/p=project/a=always]: n'},
+  {type:'output',text:''},
+  {type:'danger',text:'  BLOCKED. Logged to audit.'},
+];
+const term = document.getElementById('term');
+let i = 0;
+function addLine() {
+  if (i >= lines.length) return;
+  const l = lines[i];
+  const el = document.createElement('div');
+  el.className = 'line ' + l.type;
+  el.textContent = l.text;
+  el.style.animationDelay = '0s';
+  term.appendChild(el);
+  i++;
+  setTimeout(addLine, l.text === '' ? 100 : 400 + Math.random() * 200);
+}
+setTimeout(addLine, 800);
+</script>
+</body>
+</html>

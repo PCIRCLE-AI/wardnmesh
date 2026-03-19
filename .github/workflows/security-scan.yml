@@ -1,0 +1,27 @@
+name: WardnMesh Security Scan
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build WardnMesh CLI
+        run: npm run build
+
+      - name: Run WardnMesh Security Scan
+        run: node dist/cli.js scan .

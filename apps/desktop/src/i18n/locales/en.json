@@ -1,0 +1,181 @@
+{
+  "common": {
+    "appName": "WardnMesh",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "next": "Next",
+    "back": "Back",
+    "finish": "Finish",
+    "cancel": "Cancel",
+    "close": "Close",
+    "save": "Save",
+    "activate": "Activate",
+    "deactivate": "Deactivate"
+  },
+  "activation": {
+    "title": "Welcome to WardnMesh",
+    "subtitle": "AI Agent Security Monitor",
+    "apiKeyLabel": "Enter your API Key",
+    "apiKeyPlaceholder": "sk_live_xxxxxxxxxxxxxxxx",
+    "apiKeyError": "Please enter your API key",
+    "invalidKeyError": "Invalid API key. Please check and try again.",
+    "activateButton": "Activate WardnMesh",
+    "activating": "Activating...",
+    "divider": "or",
+    "noAccountYet": "Don't have an account yet?",
+    "signUpButton": "Sign Up for Free",
+    "signUpSubtext": "Get started with our free tier - No credit card required",
+    "needHelp": "Need help? View documentation"
+  },
+  "setupWizard": {
+    "welcome": {
+      "title": "Welcome to WardnMesh",
+      "subtitle": "Let's get you protected in 3 easy steps",
+      "feature1Title": "Real-time Protection",
+      "feature1Desc": "Monitor and block threats as they happen",
+      "feature2Title": "Instant Alerts",
+      "feature2Desc": "Get notified immediately when attacks are blocked",
+      "feature3Title": "Usage Analytics",
+      "feature3Desc": "Track your agent's security metrics",
+      "getStarted": "Get Started"
+    },
+    "systemCheck": {
+      "title": "System Check",
+      "subtitle": "Verifying your environment",
+      "checking": "Checking system...",
+      "os": "Operating System",
+      "arch": "Architecture",
+      "cli": "WardnMesh CLI",
+      "node": "Node.js",
+      "python": "Python",
+      "installed": "Installed",
+      "notInstalled": "Not Installed",
+      "notFound": "Not found",
+      "version": "Version",
+      "checking_status": "Checking...",
+      "scanPrompt": "Click the button below to scan your system",
+      "scanning": "Scanning...",
+      "scanButton": "Scan System",
+      "continueButton": "Continue"
+    },
+    "cliInstall": {
+      "title": "Install CLI",
+      "subtitle": "The CLI monitors your agent in real-time",
+      "alreadyInstalled": "CLI is already installed",
+      "installed": "CLI Installed",
+      "version": "Version",
+      "platform": "Platform",
+      "whatWillBeInstalled": "What will be installed",
+      "cliBinary": "WardnMesh CLI binary",
+      "pathConfig": "PATH configuration",
+      "pathNote": "You may need to restart your terminal after installation for PATH changes to take effect.",
+      "installButton": "Install WardnMesh CLI",
+      "installing": "Installing...",
+      "installSuccess": "CLI installed successfully!",
+      "installError": "Installation failed. Please try again.",
+      "installedPath": "Installed at:",
+      "versionInstalled": "Version:",
+      "pathInstructions": "Add to PATH",
+      "skipStep": "Skip this step (install later)",
+      "continueButton": "Continue"
+    },
+    "sdkInstall": {
+      "title": "Install SDKs (Optional)",
+      "subtitle": "Choose which SDKs you want to install",
+      "nodeTitle": "Node.js SDK",
+      "nodeDesc": "For JavaScript/TypeScript AI agents",
+      "pythonTitle": "Python SDK",
+      "pythonDesc": "For Python AI agents (includes ML detection)",
+      "nodeNotDetected": "Node.js not detected",
+      "pythonNotDetected": "Python not detected",
+      "installButton": "Install {{sdk}} SDK",
+      "installButtonText": "Install",
+      "installing": "Installing...",
+      "installed": "Installed",
+      "installError": "Failed to install",
+      "tip": "You can skip this step and install SDKs later from the dashboard.",
+      "continueButton": "Continue",
+      "skipForNow": "Skip for now",
+      "skipButton": "Skip SDK Installation"
+    },
+    "auth": {
+      "title": "Authenticate",
+      "subtitle": "Enter your API key to activate protection",
+      "apiKeyLabel": "API Key",
+      "apiKeyPlaceholder": "sk_live_xxxxxxxxxxxxxxxx",
+      "apiKeyError": "API key must start with \"sk_live_\" or \"sk_test_\"",
+      "helpText": "You can find your API key in the",
+      "dashboardLink": "dashboard settings",
+      "noAccount": "Don't have an account?",
+      "signUpLink": "Sign up for free",
+      "activateButton": "Activate",
+      "validating": "Validating..."
+    },
+    "complete": {
+      "title": "All Set!",
+      "subtitle": "WardnMesh is now protecting your AI agents",
+      "nextSteps": "Next Steps",
+      "step1Title": "Run an AI agent",
+      "step1Desc": "Start Claude Code or any AI tool",
+      "step2Title": "Check the tray icon",
+      "step2Desc": "Click the WardnMesh icon to see live stats",
+      "step3Title": "View dashboard",
+      "step3Desc": "Open local Dashboard for detailed analytics",
+      "openDashboard": "Open Dashboard",
+      "finishButton": "Finish Setup"
+    }
+  },
+  "trayPanel": {
+    "notActivated": "Not Activated",
+    "activatedTitle": "WardnMesh Active",
+    "protectedTitle": "Protected",
+    "unprotectedTitle": "Unprotected",
+    "toggleProtection": "Toggle Protection",
+    "protectionLevel": "Protection Level",
+    "protectionLevels": {
+      "LOW": "Low",
+      "MEDIUM": "Medium",
+      "HIGH": "High"
+    },
+    "stats": {
+      "blockedToday": "Blocked Today",
+      "toolCalls": "Tool Calls",
+      "violations": "Violations"
+    },
+    "violations": {
+      "title": "Recent Violations",
+      "empty": "No violations detected",
+      "threatLevel": "Threat Level",
+      "threatLevels": {
+        "CRITICAL": "Critical",
+        "HIGH": "High",
+        "MEDIUM": "Medium",
+        "LOW": "Low"
+      },
+      "action": "Action",
+      "actions": {
+        "BLOCKED": "Blocked",
+        "LOGGED": "Logged",
+        "ALLOWED": "Allowed"
+      }
+    },
+    "menu": {
+      "openDashboard": "Open Dashboard",
+      "settings": "Settings",
+      "deactivate": "Deactivate"
+    }
+  },
+  "notifications": {
+    "threatBlocked": "🛡️ WardnMesh Threat Blocked",
+    "threatMessage": "{{level}} threat: {{tool}} - {{reason}}"
+  },
+  "errors": {
+    "generic": "An error occurred. Please try again.",
+    "networkError": "Network error. Please check your connection.",
+    "apiKeyInvalid": "Invalid API key",
+    "apiKeyRevoked": "API key has been revoked or suspended",
+    "tooManyAttempts": "Too many attempts. Please wait a moment.",
+    "activationFailed": "Activation failed. Please try again."
+  }
+}
