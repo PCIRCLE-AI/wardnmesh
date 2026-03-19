@@ -1,0 +1,263 @@
+name: CLI Release
+
+on:
+  push:
+    tags:
+      - 'cli-v*'  # Trigger on tags like cli-v0.1.0
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to release (e.g., 0.1.0)'
+        required: true
+        type: string
+
+env:
+  BUN_VERSION: '1.2.1'
+
+jobs:
+  build:
+    name: Build CLI - ${{ matrix.binary_name }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # macOS ARM64 (Apple Silicon)
+          - os: macos-14
+            bun_target: bun-darwin-arm64
+            binary_name: wardn-aarch64-apple-darwin
+
+          # macOS x64 (Intel) - using macos-15 as macos-13 is retired
+          - os: macos-15
+            bun_target: bun-darwin-x64
+            binary_name: wardn-x86_64-apple-darwin
+
+          # Linux x64
+          - os: ubuntu-latest
+            bun_target: bun-linux-x64
+            binary_name: wardn-x86_64-unknown-linux-gnu
+
+          # Linux ARM64
+          - os: ubuntu-latest
+            bun_target: bun-linux-arm64
+            binary_name: wardn-aarch64-unknown-linux-gnu
+
+          # Windows x64
+          - os: windows-latest
+            bun_target: bun-windows-x64
+            binary_name: wardn-x86_64-pc-windows-msvc.exe
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: ${{ env.BUN_VERSION }}
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Build TypeScript
+        run: bun run build
+
+      - name: Compile CLI binary
+        run: |
+          bun build src/cli.ts --compile --target=${{ matrix.bun_target }} --outfile=${{ matrix.binary_name }}
+
+      - name: Generate checksum (Unix)
+        if: runner.os != 'Windows'
+        run: |
+          shasum -a 256 ${{ matrix.binary_name }} > ${{ matrix.binary_name }}.sha256
+
+      - name: Generate checksum (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $hash = Get-FileHash -Algorithm SHA256 ${{ matrix.binary_name }}
+          "$($hash.Hash.ToLower())  ${{ matrix.binary_name }}" | Out-File -Encoding ASCII ${{ matrix.binary_name }}.sha256
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.binary_name }}
+          path: |
+            ${{ matrix.binary_name }}
+            ${{ matrix.binary_name }}.sha256
+          retention-days: 7
+
+  release:
+    name: Create Release
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get version from tag or input
+        id: version
+        env:
+          INPUT_VERSION: ${{ inputs.version }}
+          REF_NAME: ${{ github.ref_name }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            echo "version=$INPUT_VERSION" >> $GITHUB_OUTPUT
+          else
+            # Extract version from tag (cli-v0.1.0 -> 0.1.0)
+            echo "version=${REF_NAME#cli-v}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Prepare release files
+        run: |
+          mkdir -p release
+          for dir in artifacts/*/; do
+            cp "$dir"* release/
+          done
+          ls -la release/
+
+      - name: Import GPG key
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        run: |
+          echo "$GPG_PRIVATE_KEY" | gpg --batch --import
+          # Trust the key
+          KEY_ID=$(gpg --list-keys --keyid-format LONG | grep -A1 'pub' | tail -1 | awk '{print $1}')
+          echo "${KEY_ID}:6:" | gpg --import-ownertrust
+
+      - name: Sign binaries with GPG
+        env:
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        run: |
+          cd release
+          for binary in wardn-*; do
+            # Skip checksum files
+            if [[ ! "$binary" == *.sha256 ]]; then
+              echo "Signing $binary..."
+              gpg --batch --yes --pinentry-mode loopback \
+                  --passphrase "$GPG_PASSPHRASE" \
+                  --detach-sign --armor \
+                  --output "${binary}.sig" \
+                  "$binary"
+            fi
+          done
+          echo "Signed files:"
+          ls -la *.sig
+
+      - name: Export GPG public key
+        run: |
+          gpg --armor --export > release/wardnmesh-public-key.asc
+          echo "Public key exported"
+
+      - name: Generate release notes
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          cat > release_notes.md << EOF
+          ## WardnMesh CLI v${VERSION}
+
+          ### Installation
+
+          **Automatic (via Desktop App):**
+          Download [WardnMesh Desktop](https://wardnmesh.ai/download) - CLI will be installed automatically.
+
+          **Manual Installation:**
+
+          <details>
+          <summary>macOS (Apple Silicon)</summary>
+
+          \`\`\`bash
+          curl -L https://github.com/PCIRCLE-AI/wm-cli/releases/download/cli-v${VERSION}/wardn-aarch64-apple-darwin -o wardn
+          chmod +x wardn
+          sudo mv wardn /usr/local/bin/
+          \`\`\`
+          </details>
+
+          <details>
+          <summary>macOS (Intel)</summary>
+
+          \`\`\`bash
+          curl -L https://github.com/PCIRCLE-AI/wm-cli/releases/download/cli-v${VERSION}/wardn-x86_64-apple-darwin -o wardn
+          chmod +x wardn
+          sudo mv wardn /usr/local/bin/
+          \`\`\`
+          </details>
+
+          <details>
+          <summary>Linux (x64)</summary>
+
+          \`\`\`bash
+          curl -L https://github.com/PCIRCLE-AI/wm-cli/releases/download/cli-v${VERSION}/wardn-x86_64-unknown-linux-gnu -o wardn
+          chmod +x wardn
+          sudo mv wardn /usr/local/bin/
+          \`\`\`
+          </details>
+
+          <details>
+          <summary>Linux (ARM64)</summary>
+
+          \`\`\`bash
+          curl -L https://github.com/PCIRCLE-AI/wm-cli/releases/download/cli-v${VERSION}/wardn-aarch64-unknown-linux-gnu -o wardn
+          chmod +x wardn
+          sudo mv wardn /usr/local/bin/
+          \`\`\`
+          </details>
+
+          <details>
+          <summary>Windows (x64)</summary>
+
+          \`\`\`powershell
+          Invoke-WebRequest -Uri "https://github.com/PCIRCLE-AI/wm-cli/releases/download/cli-v${VERSION}/wardn-x86_64-pc-windows-msvc.exe" -OutFile "wardn.exe"
+          # Add to PATH or move to a directory in PATH
+          \`\`\`
+          </details>
+
+          ### Verify Installation
+
+          \`\`\`bash
+          wardn --version
+          # Should output: wardn ${VERSION}
+          \`\`\`
+
+          ### Security Verification
+
+          **GPG Signature Verification:**
+          \`\`\`bash
+          # Import WardnMesh public key
+          curl -sSL https://github.com/PCIRCLE-AI/wm-cli/releases/download/cli-v${VERSION}/wardnmesh-public-key.asc | gpg --import
+
+          # Verify the binary signature
+          gpg --verify wardn-<platform>.sig wardn-<platform>
+          \`\`\`
+
+          **SHA256 Checksum Verification:**
+          \`\`\`bash
+          shasum -a 256 -c wardn-<platform>.sha256
+          \`\`\`
+
+          All binaries are signed with WardnMesh's GPG key for authenticity verification.
+          EOF
+
+      - name: Create GitHub Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ steps.version.outputs.version }}
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: cli-v${{ steps.version.outputs.version }}
+          name: WardnMesh CLI v${{ steps.version.outputs.version }}
+          body_path: release_notes.md
+          draft: false
+          prerelease: false
+          files: |
+            release/*

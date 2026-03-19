@@ -1,0 +1,2432 @@
+[
+  {
+    "id": "wm-code-001",
+    "pattern": "(?i)eval\\s*\\(",
+    "description": "Code Injection - eval()",
+    "severity": "critical",
+    "category": "code-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-code-002",
+    "pattern": "(?i)Function\\s*\\(",
+    "description": "Code Injection - Function constructor",
+    "severity": "critical",
+    "category": "code-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-code-003",
+    "pattern": "(?i)setTimeout\\s*\\([^,]+,",
+    "description": "Code Injection - setTimeout with string",
+    "severity": "high",
+    "category": "code-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-code-004",
+    "pattern": "(?i)setInterval\\s*\\([^,]+,",
+    "description": "Code Injection - setInterval with string",
+    "severity": "high",
+    "category": "code-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-code-005",
+    "pattern": "\\{\\{.*\\}\\}",
+    "description": "Template Injection - Double Curly Braces",
+    "severity": "high",
+    "category": "code-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-code-006",
+    "pattern": "\\{%.*%\\}",
+    "description": "Template Injection - Jinja2/Django",
+    "severity": "high",
+    "category": "code-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-code-007",
+    "pattern": "\\$\\{.*\\}",
+    "description": "Template Injection - String Interpolation",
+    "severity": "high",
+    "category": "code-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-cmd-001",
+    "pattern": "(?i);\\s*ls\\b",
+    "description": "Command Injection - ls",
+    "severity": "critical",
+    "category": "command-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-cmd-002",
+    "pattern": "(?i);\\s*cat\\b",
+    "description": "Command Injection - cat",
+    "severity": "critical",
+    "category": "command-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-cmd-003",
+    "pattern": "(?i);\\s*rm\\s+-rf",
+    "description": "Command Injection - rm -rf",
+    "severity": "critical",
+    "category": "command-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-cmd-004",
+    "pattern": "(?i);\\s*wget\\b",
+    "description": "Command Injection - wget",
+    "severity": "critical",
+    "category": "command-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-cmd-005",
+    "pattern": "(?i);\\s*curl\\b",
+    "description": "Command Injection - curl",
+    "severity": "critical",
+    "category": "command-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-cmd-006",
+    "pattern": "(?i);\\s*nc\\b",
+    "description": "Command Injection - netcat",
+    "severity": "critical",
+    "category": "command-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-cmd-007",
+    "pattern": "(?i);\\s*bash\\b",
+    "description": "Command Injection - bash",
+    "severity": "critical",
+    "category": "command-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-cmd-008",
+    "pattern": "(?i);\\s*sh\\b",
+    "description": "Command Injection - sh",
+    "severity": "critical",
+    "category": "command-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-cmd-009",
+    "pattern": "(?i);\\s*python\\b",
+    "description": "Command Injection - python",
+    "severity": "critical",
+    "category": "command-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-cmd-010",
+    "pattern": "(?i);\\s*perl\\b",
+    "description": "Command Injection - perl",
+    "severity": "critical",
+    "category": "command-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-cmd-011",
+    "pattern": "(?i)&&",
+    "description": "Command Injection - && operator",
+    "severity": "high",
+    "category": "command-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-cmd-012",
+    "pattern": "(?i)\\|\\|",
+    "description": "Command Injection - || operator",
+    "severity": "high",
+    "category": "command-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-cmd-013",
+    "pattern": "(?i)\\|",
+    "description": "Command Injection - pipe operator",
+    "severity": "high",
+    "category": "command-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-cmd-014",
+    "pattern": "(?i)`[^`]+`",
+    "description": "Command Injection - backticks",
+    "severity": "critical",
+    "category": "command-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-cmd-015",
+    "pattern": "(?i)\\$\\([^\\)]+\\)",
+    "description": "Command Injection - $() command substitution",
+    "severity": "critical",
+    "category": "command-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-cmd-016",
+    "pattern": "(?i);\\s*dir\\b",
+    "description": "Command Injection - dir (Windows)",
+    "severity": "critical",
+    "category": "command-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-cmd-017",
+    "pattern": "(?i);\\s*del\\b",
+    "description": "Command Injection - del (Windows)",
+    "severity": "critical",
+    "category": "command-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-cmd-018",
+    "pattern": "(?i);\\s*cmd\\.exe",
+    "description": "Command Injection - cmd.exe",
+    "severity": "critical",
+    "category": "command-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-cmd-019",
+    "pattern": "(?i);\\s*powershell",
+    "description": "Command Injection - PowerShell",
+    "severity": "critical",
+    "category": "command-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-cmd-020",
+    "pattern": "(?i)\\\\x[0-9a-f]{2}",
+    "description": "Command Injection - Hex encoding",
+    "severity": "high",
+    "category": "command-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-cmd-021",
+    "pattern": "(?i)%[0-9a-f]{2}",
+    "description": "Command Injection - URL encoding",
+    "severity": "high",
+    "category": "command-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-cmd-022",
+    "pattern": "(?i)\\\\\\\\ n",
+    "description": "Command Injection - newline escape",
+    "severity": "high",
+    "category": "command-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-net-015",
+    "pattern": "(?i)ftp://",
+    "description": "SSRF - FTP protocol",
+    "severity": "medium",
+    "category": "network",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-net-020",
+    "pattern": "(?i)\\.ngrok\\.io",
+    "description": "Network - Ngrok tunnel detection",
+    "severity": "medium",
+    "category": "network",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-path-001",
+    "pattern": "\\.\\./|\\.\\.\\\\",
+    "description": "Path Traversal - ../ or ..\\\\",
+    "severity": "critical",
+    "category": "path-traversal",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-path-002",
+    "pattern": "\\.\\.%2f|\\.\\.%5c",
+    "description": "Path Traversal - URL encoded",
+    "severity": "critical",
+    "category": "path-traversal",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-path-003",
+    "pattern": "\\.\\.\\u002f|\\.\\.\\u005c",
+    "description": "Path Traversal - Unicode encoded",
+    "severity": "critical",
+    "category": "path-traversal",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-path-004",
+    "pattern": "(?i)%252e%252e%252f",
+    "description": "Path Traversal - Double URL encoded",
+    "severity": "critical",
+    "category": "path-traversal",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-path-005",
+    "pattern": "(?i)/etc/passwd",
+    "description": "Path Traversal - /etc/passwd",
+    "severity": "critical",
+    "category": "path-traversal",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-path-006",
+    "pattern": "(?i)/etc/shadow",
+    "description": "Path Traversal - /etc/shadow",
+    "severity": "critical",
+    "category": "path-traversal",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-path-007",
+    "pattern": "(?i)C:\\\\Windows\\\\System32",
+    "description": "Path Traversal - Windows System32",
+    "severity": "critical",
+    "category": "path-traversal",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-path-008",
+    "pattern": "(?i)C:\\\\boot\\.ini",
+    "description": "Path Traversal - boot.ini",
+    "severity": "critical",
+    "category": "path-traversal",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-path-009",
+    "pattern": "(?i)file://",
+    "description": "Path Traversal - file:// protocol",
+    "severity": "critical",
+    "category": "path-traversal",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-path-010",
+    "pattern": "(?i)php://filter",
+    "description": "Path Traversal - PHP filter",
+    "severity": "critical",
+    "category": "path-traversal",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-path-011",
+    "pattern": "(?i)php://input",
+    "description": "Path Traversal - PHP input",
+    "severity": "critical",
+    "category": "path-traversal",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-path-012",
+    "pattern": "(?i)data://text/plain",
+    "description": "Path Traversal - data:// pseudo-protocol",
+    "severity": "high",
+    "category": "path-traversal",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-path-013",
+    "pattern": "(?i)\\\\\\\\\\\\\\\\[^\\\\\\\\]+\\\\\\\\",
+    "description": "Path Traversal - UNC path",
+    "severity": "high",
+    "category": "path-traversal",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-path-014",
+    "pattern": "(?i)\\.htaccess",
+    "description": "Path Traversal - .htaccess",
+    "severity": "high",
+    "category": "path-traversal",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-path-015",
+    "pattern": "(?i)\\.env",
+    "description": "Path Traversal - .env file",
+    "severity": "critical",
+    "category": "path-traversal",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-path-016",
+    "pattern": "(?i)web\\.config",
+    "description": "Path Traversal - web.config",
+    "severity": "high",
+    "category": "path-traversal",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-path-017",
+    "pattern": "(?i)\\.git/config",
+    "description": "Path Traversal - Git config",
+    "severity": "high",
+    "category": "path-traversal",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-path-018",
+    "pattern": "(?i)package\\.json",
+    "description": "Path Traversal - package.json",
+    "severity": "medium",
+    "category": "path-traversal",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-001",
+    "pattern": "\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b",
+    "description": "Email Address",
+    "severity": "medium",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-002",
+    "pattern": "\\b\\d{3}-\\d{2}-\\d{4}\\b",
+    "description": "US Social Security Number (SSN)",
+    "severity": "critical",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-003",
+    "pattern": "\\b\\d{9}\\b",
+    "description": "US SSN (no dashes)",
+    "severity": "critical",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-004",
+    "pattern": "\\b4[0-9]{12}(?:[0-9]{3})?\\b",
+    "description": "Visa Credit Card",
+    "severity": "critical",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-005",
+    "pattern": "\\b5[1-5][0-9]{14}\\b",
+    "description": "Mastercard Credit Card",
+    "severity": "critical",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-006",
+    "pattern": "\\b3[47][0-9]{13}\\b",
+    "description": "American Express Credit Card",
+    "severity": "critical",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-007",
+    "pattern": "\\b6(?:011|5[0-9]{2})[0-9]{12}\\b",
+    "description": "Discover Credit Card",
+    "severity": "critical",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-008",
+    "pattern": "\\b\\d{3}[-.]?\\d{3}[-.]?\\d{4}\\b",
+    "description": "US Phone Number",
+    "severity": "medium",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-009",
+    "pattern": "\\+1[-.\\s]?\\d{3}[-.\\s]?\\d{3}[-.\\s]?\\d{4}",
+    "description": "US Phone Number (International)",
+    "severity": "medium",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-010",
+    "pattern": "\\+44\\s?\\d{4}\\s?\\d{6}",
+    "description": "UK Phone Number",
+    "severity": "medium",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-011",
+    "pattern": "\\+\\d{1,3}[-.\\s]?\\d{1,14}",
+    "description": "International Phone Number",
+    "severity": "medium",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-012",
+    "pattern": "\\b[A-Z]{1,2}[0-9]{6,9}\\b",
+    "description": "Passport Number (General)",
+    "severity": "critical",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-013",
+    "pattern": "\\b[0-9]{9}\\b",
+    "description": "US Passport Number",
+    "severity": "critical",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-014",
+    "pattern": "\\b[A-Z][0-9]{7}\\b",
+    "description": "US Driver License (format 1)",
+    "severity": "high",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-015",
+    "pattern": "\\b[A-Z]{2}[0-9]{6}\\b",
+    "description": "US Driver License (format 2)",
+    "severity": "high",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-016",
+    "pattern": "\\b[0-9]{8,17}\\b",
+    "description": "Bank Account Number",
+    "severity": "critical",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-017",
+    "pattern": "\\b[A-Z]{2}[0-9]{2}[A-Z0-9]{11,30}\\b",
+    "description": "IBAN",
+    "severity": "critical",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-018",
+    "pattern": "\\b[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})?\\b",
+    "description": "SWIFT/BIC Code",
+    "severity": "high",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-019",
+    "pattern": "\\b(?:[0-9]{1,3}\\.){3}[0-9]{1,3}\\b",
+    "description": "IPv4 Address",
+    "severity": "low",
+    "category": "pii-exposure",
+    "enabled": false,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-020",
+    "pattern": "\\b([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}\\b",
+    "description": "IPv6 Address",
+    "severity": "low",
+    "category": "pii-exposure",
+    "enabled": false,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-021",
+    "pattern": "\\b([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})\\b",
+    "description": "MAC Address",
+    "severity": "low",
+    "category": "pii-exposure",
+    "enabled": false,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-022",
+    "pattern": "\\b[A-Z]{2}[0-9]{6}[A-D]\\b",
+    "description": "UK National Insurance Number",
+    "severity": "critical",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-023",
+    "pattern": "\\b\\d{3}-\\d{3}-\\d{3}\\b",
+    "description": "Canadian Social Insurance Number",
+    "severity": "critical",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-024",
+    "pattern": "\\bATU\\d{8}\\b",
+    "description": "Austrian VAT Number",
+    "severity": "medium",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-025",
+    "pattern": "\\bBE0?\\d{9}\\b",
+    "description": "Belgian VAT Number",
+    "severity": "medium",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-026",
+    "pattern": "\\bDE\\d{9}\\b",
+    "description": "German VAT Number",
+    "severity": "medium",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-027",
+    "pattern": "\\bFR[A-Z0-9]{2}\\d{9}\\b",
+    "description": "French VAT Number",
+    "severity": "medium",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-028",
+    "pattern": "\\bMRN[:\\s]?\\d{6,10}\\b",
+    "description": "Medical Record Number",
+    "severity": "critical",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-029",
+    "pattern": "\\b[0-9]{10}X\\b",
+    "description": "NHS Number (UK)",
+    "severity": "critical",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-030",
+    "pattern": "\\b\\d{2}-\\d{7}\\b",
+    "description": "Employer Identification Number (EIN)",
+    "severity": "high",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-031",
+    "pattern": "\\b\\d{3}-\\d{2}-\\d{4}\\b",
+    "description": "US Tax ID (TIN)",
+    "severity": "critical",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-032",
+    "pattern": "\\b(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(19|20)\\d{2}\\b",
+    "description": "Birth Date (MM/DD/YYYY)",
+    "severity": "medium",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-033",
+    "pattern": "\\b(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(19|20)\\d{2}\\b",
+    "description": "Birth Date (DD-MM-YYYY)",
+    "severity": "medium",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-034",
+    "pattern": "(?i)fingerprint|biometric|retina|iris.scan",
+    "description": "Biometric Data Reference",
+    "severity": "critical",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-pii-035",
+    "pattern": "\\b\\d+\\s+[A-Z][a-z]+\\s+(Street|St|Avenue|Ave|Road|Rd|Boulevard|Blvd|Lane|Ln|Drive|Dr)",
+    "description": "Street Address",
+    "severity": "medium",
+    "category": "pii-exposure",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-prompt-001",
+    "pattern": "(?i)ignore (all )?previous (instructions|prompts)",
+    "description": "Prompt Injection - Ignore Previous Instructions",
+    "severity": "critical",
+    "category": "prompt-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-prompt-002",
+    "pattern": "(?i)system prompt",
+    "description": "Prompt Injection - System Prompt Reference",
+    "severity": "high",
+    "category": "prompt-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-prompt-003",
+    "pattern": "(?i)new instructions:",
+    "description": "Prompt Injection - New Instructions",
+    "severity": "critical",
+    "category": "prompt-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-prompt-004",
+    "pattern": "(?i)override (your|previous) (instructions|guidelines)",
+    "description": "Prompt Injection - Override Instructions",
+    "severity": "critical",
+    "category": "prompt-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-prompt-005",
+    "pattern": "(?i)you are now",
+    "description": "Prompt Injection - Role Change",
+    "severity": "critical",
+    "category": "prompt-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-prompt-006",
+    "pattern": "(?i)act as (if you are )?a",
+    "description": "Prompt Injection - Act As",
+    "severity": "high",
+    "category": "prompt-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-prompt-007",
+    "pattern": "(?i)pretend (to be|you are)",
+    "description": "Prompt Injection - Pretend To Be",
+    "severity": "high",
+    "category": "prompt-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-prompt-008",
+    "pattern": "(?i)forget (everything|all) (you|previous)",
+    "description": "Prompt Injection - Forget Previous",
+    "severity": "critical",
+    "category": "prompt-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-prompt-009",
+    "pattern": "(?i)DAN mode",
+    "description": "Prompt Injection - DAN (Do Anything Now)",
+    "severity": "critical",
+    "category": "prompt-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-prompt-010",
+    "pattern": "(?i)developer mode",
+    "description": "Prompt Injection - Developer Mode",
+    "severity": "high",
+    "category": "prompt-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-prompt-011",
+    "pattern": "(?i)jailbreak",
+    "description": "Prompt Injection - Jailbreak",
+    "severity": "critical",
+    "category": "prompt-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-prompt-012",
+    "pattern": "(?i)sudo mode",
+    "description": "Prompt Injection - Sudo Mode",
+    "severity": "high",
+    "category": "prompt-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-prompt-013",
+    "pattern": "(?i)for educational purposes only",
+    "description": "Prompt Injection - Educational Excuse",
+    "severity": "high",
+    "category": "prompt-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-prompt-014",
+    "pattern": "(?i)in a fictional scenario",
+    "description": "Prompt Injection - Fictional Scenario",
+    "severity": "high",
+    "category": "prompt-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-prompt-015",
+    "pattern": "(?i)disregard your training",
+    "description": "Prompt Injection - Disregard Training",
+    "severity": "critical",
+    "category": "prompt-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-prompt-016",
+    "pattern": "(?i)output.* raw.* (code|data)",
+    "description": "Prompt Injection - Request Raw Output",
+    "severity": "high",
+    "category": "prompt-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-prompt-017",
+    "pattern": "(?i)show.* system.* message",
+    "description": "Prompt Injection - Show System Message",
+    "severity": "high",
+    "category": "prompt-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-prompt-018",
+    "pattern": "(?i)reveal.* prompt",
+    "description": "Prompt Injection - Reveal Prompt",
+    "severity": "high",
+    "category": "prompt-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-prompt-019",
+    "pattern": "(?i)this is not a prompt injection",
+    "description": "Prompt Injection - Denial Statement",
+    "severity": "medium",
+    "category": "prompt-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-prompt-020",
+    "pattern": "(?i)for research purposes",
+    "description": "Prompt Injection - Research Excuse",
+    "severity": "medium",
+    "category": "prompt-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-prompt-021",
+    "pattern": "(?i)repeat (the |your )?(system|initial) (prompt|instructions)",
+    "description": "Prompt Injection - Repeat System Prompt",
+    "severity": "critical",
+    "category": "prompt-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-prompt-022",
+    "pattern": "(?i)what are your (initial )?instructions",
+    "description": "Prompt Injection - Ask for Instructions",
+    "severity": "high",
+    "category": "prompt-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-prompt-023",
+    "pattern": "(?i)summarize (your|the) (system|original) prompt",
+    "description": "Prompt Injection - Summarize System Prompt",
+    "severity": "high",
+    "category": "prompt-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-prompt-024",
+    "pattern": "(?i)---\\\\s*END",
+    "description": "Prompt Injection - Fake END delimiter",
+    "severity": "high",
+    "category": "prompt-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-prompt-025",
+    "pattern": "(?i)<\\|endoftext\\|>",
+    "description": "Prompt Injection - End of text token",
+    "severity": "high",
+    "category": "prompt-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-001",
+    "pattern": "sk-[a-zA-Z0-9]{48}",
+    "description": "OpenAI API Key",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-002",
+    "pattern": "sk-ant-[a-zA-Z0-9\\-]{95,}",
+    "description": "Anthropic API Key",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-003",
+    "pattern": "ghp_[a-zA-Z0-9]{36}",
+    "description": "GitHub Personal Access Token",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-004",
+    "pattern": "gho_[a-zA-Z0-9]{36}",
+    "description": "GitHub OAuth Token",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-005",
+    "pattern": "ghu_[a-zA-Z0-9]{36}",
+    "description": "GitHub User-to-Server Token",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-006",
+    "pattern": "ghs_[a-zA-Z0-9]{36}",
+    "description": "GitHub Server-to-Server Token",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-007",
+    "pattern": "ghr_[a-zA-Z0-9]{36}",
+    "description": "GitHub Refresh Token",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-008",
+    "pattern": "glpat-[a-zA-Z0-9\\-_]{20}",
+    "description": "GitLab Personal Access Token",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-009",
+    "pattern": "gloas-[a-zA-Z0-9\\-_]{64}",
+    "description": "GitLab OAuth Application Secret",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-010",
+    "pattern": "AKIA[0-9A-Z]{16}",
+    "description": "AWS Access Key ID",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-011",
+    "pattern": "(?i)aws(.{0,20})?['\"][0-9a-zA-Z/+]{40}['\"]",
+    "description": "AWS Secret Access Key",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-012",
+    "pattern": "ASIA[0-9A-Z]{16}",
+    "description": "AWS Session Token",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-013",
+    "pattern": "AIza[0-9A-Za-z\\-_]{35}",
+    "description": "Google API Key",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-014",
+    "pattern": "[0-9]+-[0-9A-Za-z_]{32}\\.apps\\.googleusercontent\\.com",
+    "description": "Google OAuth Client ID",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-015",
+    "pattern": "ya29\\.[0-9A-Za-z\\-_]+",
+    "description": "Google OAuth Access Token",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-016",
+    "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+    "description": "Azure Client Secret",
+    "severity": "high",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-017",
+    "pattern": "AccountKey=[a-zA-Z0-9+/]{88}==",
+    "description": "Azure Storage Account Key",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-018",
+    "pattern": "sk_live_[0-9a-zA-Z]{24,}",
+    "description": "Stripe Live Secret Key",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-019",
+    "pattern": "rk_live_[0-9a-zA-Z]{24,}",
+    "description": "Stripe Live Restricted Key",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-020",
+    "pattern": "sk_test_[0-9a-zA-Z]{24,}",
+    "description": "Stripe Test Secret Key",
+    "severity": "medium",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-021",
+    "pattern": "access_token\\$production\\$[0-9a-z]{16}\\$[0-9a-f]{32}",
+    "description": "PayPal Production Access Token",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-022",
+    "pattern": "access_token\\$sandbox\\$[0-9a-z]{16}\\$[0-9a-f]{32}",
+    "description": "PayPal Sandbox Access Token",
+    "severity": "medium",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-023",
+    "pattern": "sq0csp-[0-9A-Za-z\\-_]{43}",
+    "description": "Square Secret Key",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-024",
+    "pattern": "sq0atp-[0-9A-Za-z\\-_]{22}",
+    "description": "Square Access Token",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-025",
+    "pattern": "xoxb-[0-9]{11}-[0-9]{11}-[0-9a-zA-Z]{24}",
+    "description": "Slack Bot Token",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-026",
+    "pattern": "xoxp-[0-9]{11}-[0-9]{11}-[0-9a-zA-Z]{24}",
+    "description": "Slack User Token",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-027",
+    "pattern": "xoxa-[0-9]{11}-[0-9]{11}-[0-9a-zA-Z]{24}",
+    "description": "Slack Access Token",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-028",
+    "pattern": "xoxr-[0-9]{11}-[0-9]{11}-[0-9a-zA-Z]{24}",
+    "description": "Slack Refresh Token",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-029",
+    "pattern": "[MN][a-zA-Z\\d]{23}\\.[a-zA-Z\\d]{6}\\.[a-zA-Z\\d_\\-]{27}",
+    "description": "Discord Bot Token",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-030",
+    "pattern": "mfa\\.[a-z0-9_\\-]{84}",
+    "description": "Discord MFA Token",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-031",
+    "pattern": "SK[0-9a-fA-F]{32}",
+    "description": "Twilio API Key",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-032",
+    "pattern": "AC[0-9a-fA-F]{32}",
+    "description": "Twilio Account SID",
+    "severity": "high",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-033",
+    "pattern": "SG\\.[a-zA-Z0-9_\\-]{22}\\.[a-zA-Z0-9_\\-]{43}",
+    "description": "SendGrid API Key",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-034",
+    "pattern": "key-[0-9a-zA-Z]{32}",
+    "description": "Mailgun API Key",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-035",
+    "pattern": "mongodb(\\+srv)?://[^\\s]+:[^\\s]+@[^\\s]+",
+    "description": "MongoDB Connection String",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-036",
+    "pattern": "postgres(ql)?://[^\\s]+:[^\\s]+@[^\\s]+",
+    "description": "PostgreSQL Connection String",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-037",
+    "pattern": "mysql://[^\\s]+:[^\\s]+@[^\\s]+",
+    "description": "MySQL Connection String",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-038",
+    "pattern": "redis://[^\\s]*:[^\\s]+@[^\\s]+",
+    "description": "Redis Connection String with Password",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-039",
+    "pattern": "eyJ[A-Za-z0-9_-]{10,}\\.[A-Za-z0-9_-]{10,}\\.[A-Za-z0-9_-]{10,}",
+    "description": "JSON Web Token (JWT)",
+    "severity": "high",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-040",
+    "pattern": "-----BEGIN RSA PRIVATE KEY-----",
+    "description": "RSA Private Key",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-041",
+    "pattern": "-----BEGIN DSA PRIVATE KEY-----",
+    "description": "DSA Private Key",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-042",
+    "pattern": "-----BEGIN EC PRIVATE KEY-----",
+    "description": "EC Private Key",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-043",
+    "pattern": "-----BEGIN OPENSSH PRIVATE KEY-----",
+    "description": "OpenSSH Private Key",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-044",
+    "pattern": "-----BEGIN PGP PRIVATE KEY BLOCK-----",
+    "description": "PGP Private Key",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-045",
+    "pattern": "dop_v1_[a-f0-9]{64}",
+    "description": "DigitalOcean Personal Access Token",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-046",
+    "pattern": "doo_v1_[a-f0-9]{64}",
+    "description": "DigitalOcean OAuth Token",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-047",
+    "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+    "description": "Heroku API Key",
+    "severity": "high",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-048",
+    "pattern": "npm_[a-zA-Z0-9]{36}",
+    "description": "NPM Access Token",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-049",
+    "pattern": "pypi-AgEIcHlwaS5vcmc[A-Za-z0-9\\-_]{50,}",
+    "description": "PyPI Upload Token",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-050",
+    "pattern": "dckr_pat_[a-zA-Z0-9_\\-]{36}",
+    "description": "Docker Hub Personal Access Token",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-051",
+    "pattern": "[a-zA-Z0-9]{14}\\.atlasv1\\.[a-zA-Z0-9\\-_]{60,}",
+    "description": "Terraform Cloud API Token",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-052",
+    "pattern": "[a-f0-9]{32}",
+    "description": "Datadog API Key",
+    "severity": "high",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-053",
+    "pattern": "NRAK-[A-Z0-9]{27}",
+    "description": "New Relic User API Key",
+    "severity": "high",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-054",
+    "pattern": "NRAA-[a-f0-9]{27}",
+    "description": "New Relic Admin API Key",
+    "severity": "critical",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-secret-055",
+    "pattern": "[a-zA-Z0-9]{24}",
+    "description": "Atlassian API Token",
+    "severity": "high",
+    "category": "secret-detection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-001",
+    "pattern": "(?i)\\bDROP\\s+TABLE\\b",
+    "description": "SQL Injection - DROP TABLE",
+    "severity": "critical",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-002",
+    "pattern": "(?i)\\bDROP\\s+DATABASE\\b",
+    "description": "SQL Injection - DROP DATABASE",
+    "severity": "critical",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-003",
+    "pattern": "(?i)\\bDELETE\\s+FROM\\b",
+    "description": "SQL Injection - DELETE FROM",
+    "severity": "critical",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-004",
+    "pattern": "(?i)\\bUPDATE\\s+\\w+\\s+SET\\b",
+    "description": "SQL Injection - UPDATE SET",
+    "severity": "critical",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-005",
+    "pattern": "(?i)\\bINSERT\\s+INTO\\b",
+    "description": "SQL Injection - INSERT INTO",
+    "severity": "high",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-006",
+    "pattern": "(?i)\\bUNION\\s+(ALL\\s+)?SELECT\\b",
+    "description": "SQL Injection - UNION SELECT",
+    "severity": "critical",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-007",
+    "pattern": "(?i)\\bUNION\\s+(ALL\\s+)?SELECT\\s+NULL",
+    "description": "SQL Injection - UNION SELECT NULL",
+    "severity": "critical",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-008",
+    "pattern": "--\\s*$",
+    "description": "SQL Comment Injection (--)",
+    "severity": "high",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-009",
+    "pattern": "#\\s*$",
+    "description": "SQL Comment Injection (#)",
+    "severity": "high",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-010",
+    "pattern": "/\\*.*\\*/",
+    "description": "SQL Comment Injection (/* */)",
+    "severity": "high",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-011",
+    "pattern": "(?i)\\b(OR|AND)\\s+1\\s*=\\s*1\\b",
+    "description": "SQL Injection - OR/AND 1=1",
+    "severity": "critical",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-012",
+    "pattern": "(?i)\\b(OR|AND)\\s+['\"]a['\"]=['\"]a['\"]",
+    "description": "SQL Injection - OR 'a'='a'",
+    "severity": "critical",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-013",
+    "pattern": "(?i)\\bOR\\s+1\\b",
+    "description": "SQL Injection - OR 1",
+    "severity": "critical",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-014",
+    "pattern": "(?i)\\bSLEEP\\s*\\(",
+    "description": "SQL Injection - SLEEP function",
+    "severity": "critical",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-015",
+    "pattern": "(?i)\\bBENCHMARK\\s*\\(",
+    "description": "SQL Injection - BENCHMARK function",
+    "severity": "critical",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-016",
+    "pattern": "(?i)\\bWAITFOR\\s+DELAY\\b",
+    "description": "SQL Injection - WAITFOR DELAY",
+    "severity": "critical",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-017",
+    "pattern": "(?i)\\bPG_SLEEP\\s*\\(",
+    "description": "SQL Injection - PostgreSQL SLEEP",
+    "severity": "critical",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-018",
+    "pattern": "(?i)\\bEXEC\\s*\\(",
+    "description": "SQL Injection - EXEC",
+    "severity": "critical",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-019",
+    "pattern": "(?i)\\bEXECUTE\\s+IMMEDIATE\\b",
+    "description": "SQL Injection - EXECUTE IMMEDIATE",
+    "severity": "critical",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-020",
+    "pattern": "(?i)\\bxp_cmdshell\\b",
+    "description": "SQL Injection - xp_cmdshell",
+    "severity": "critical",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-021",
+    "pattern": "(?i)\\bINFORMATION_SCHEMA\\b",
+    "description": "SQL Injection - Information Schema Access",
+    "severity": "high",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-022",
+    "pattern": "(?i)\\bSYS\\.TABLES\\b",
+    "description": "SQL Injection - System Tables Access",
+    "severity": "high",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-023",
+    "pattern": "(?i)\\bSYSCAT\\.TABLES\\b",
+    "description": "SQL Injection - DB2 System Catalog",
+    "severity": "high",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-024",
+    "pattern": "(?i)\\bCONCAT\\s*\\(",
+    "description": "SQL Function - CONCAT (potential injection)",
+    "severity": "medium",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-025",
+    "pattern": "(?i)\\bCHAR\\s*\\(",
+    "description": "SQL Function - CHAR (encoding bypass)",
+    "severity": "high",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-026",
+    "pattern": "(?i)\\bASCII\\s*\\(",
+    "description": "SQL Function - ASCII (data extraction)",
+    "severity": "medium",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-027",
+    "pattern": "(?i)\\bSUBSTRING\\s*\\(",
+    "description": "SQL Function - SUBSTRING (data extraction)",
+    "severity": "medium",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-028",
+    "pattern": "(?i)\\$where\\s*:",
+    "description": "NoSQL Injection - MongoDB $where",
+    "severity": "critical",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-029",
+    "pattern": "(?i)\\$ne\\s*:",
+    "description": "NoSQL Injection - MongoDB $ne (not equal)",
+    "severity": "critical",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-030",
+    "pattern": "(?i)\\$gt\\s*:",
+    "description": "NoSQL Injection - MongoDB $gt (greater than)",
+    "severity": "high",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-031",
+    "pattern": "(?i)\\$regex\\s*:",
+    "description": "NoSQL Injection - MongoDB $regex",
+    "severity": "high",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-032",
+    "pattern": "(?i)0x[0-9a-f]+",
+    "description": "SQL Injection - Hex Encoding",
+    "severity": "high",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-033",
+    "pattern": "(?i)CAST\\s*\\(",
+    "description": "SQL Function - CAST (type conversion attack)",
+    "severity": "medium",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-sql-034",
+    "pattern": "(?i)CONVERT\\s*\\(",
+    "description": "SQL Function - CONVERT (type conversion attack)",
+    "severity": "medium",
+    "category": "sql-injection",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-net-001",
+    "pattern": "(?i)127\\.0\\.0\\.[0-9]+",
+    "description": "SSRF - Localhost (127.0.0.x)",
+    "severity": "critical",
+    "category": "ssrf",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-net-002",
+    "pattern": "(?i)localhost",
+    "description": "SSRF - localhost",
+    "severity": "critical",
+    "category": "ssrf",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-net-003",
+    "pattern": "(?i)0\\.0\\.0\\.0",
+    "description": "SSRF - 0.0.0.0",
+    "severity": "critical",
+    "category": "ssrf",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-net-004",
+    "pattern": "(?i)10\\.[0-9]+\\.[0-9]+\\.[0-9]+",
+    "description": "SSRF - Private IP 10.x.x.x",
+    "severity": "high",
+    "category": "ssrf",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-net-005",
+    "pattern": "(?i)192\\.168\\.[0-9]+\\.[0-9]+",
+    "description": "SSRF - Private IP 192.168.x.x",
+    "severity": "high",
+    "category": "ssrf",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-net-006",
+    "pattern": "(?i)172\\.(1[6-9]|2[0-9]|3[0-1])\\.[0-9]+\\.[0-9]+",
+    "description": "SSRF - Private IP 172.16-31.x.x",
+    "severity": "high",
+    "category": "ssrf",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-net-007",
+    "pattern": "(?i)169\\.254\\.169\\.254",
+    "description": "SSRF - AWS/Azure Metadata (169.254.169.254)",
+    "severity": "critical",
+    "category": "ssrf",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-net-008",
+    "pattern": "(?i)metadata\\.google\\.internal",
+    "description": "SSRF - GCP Metadata",
+    "severity": "critical",
+    "category": "ssrf",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-net-009",
+    "pattern": "(?i)100\\.100\\.100\\.200",
+    "description": "SSRF - Alibaba Cloud Metadata",
+    "severity": "critical",
+    "category": "ssrf",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-net-010",
+    "pattern": "(?i)::1",
+    "description": "SSRF - IPv6 localhost",
+    "severity": "critical",
+    "category": "ssrf",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-net-011",
+    "pattern": "(?i)0x7f000001",
+    "description": "SSRF - localhost (hex)",
+    "severity": "critical",
+    "category": "ssrf",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-net-012",
+    "pattern": "(?i)2130706433",
+    "description": "SSRF - localhost (decimal)",
+    "severity": "critical",
+    "category": "ssrf",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-net-013",
+    "pattern": "(?i)gopher://",
+    "description": "SSRF - Gopher protocol",
+    "severity": "critical",
+    "category": "ssrf",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-net-014",
+    "pattern": "(?i)dict://",
+    "description": "SSRF - Dict protocol",
+    "severity": "high",
+    "category": "ssrf",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-net-016",
+    "pattern": "(?i)@127\\.0\\.0\\.1",
+    "description": "SSRF - @ URL bypass",
+    "severity": "critical",
+    "category": "ssrf",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-net-017",
+    "pattern": "(?i)localhost#",
+    "description": "SSRF - # fragment bypass",
+    "severity": "high",
+    "category": "ssrf",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-net-018",
+    "pattern": "(?i)0177\\.0\\.0\\.1",
+    "description": "SSRF - Octal encoding",
+    "severity": "high",
+    "category": "ssrf",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-net-019",
+    "pattern": "(?i)spoofed\\.burpcollaborator\\.net",
+    "description": "SSRF - DNS Rebinding (Burp)",
+    "severity": "high",
+    "category": "ssrf",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-xss-001",
+    "pattern": "(?i)<script[^>]*>.*</script>",
+    "description": "XSS - Script Tag",
+    "severity": "critical",
+    "category": "xss",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-xss-002",
+    "pattern": "(?i)<script[^>]*>",
+    "description": "XSS - Script Tag Opening",
+    "severity": "critical",
+    "category": "xss",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-xss-003",
+    "pattern": "(?i)javascript:",
+    "description": "XSS - JavaScript Protocol",
+    "severity": "critical",
+    "category": "xss",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-xss-004",
+    "pattern": "(?i)on\\w+\\s*=",
+    "description": "XSS - Event Handler (onclick, onerror, etc.)",
+    "severity": "critical",
+    "category": "xss",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-xss-005",
+    "pattern": "(?i)<iframe[^>]*>",
+    "description": "XSS - iFrame Injection",
+    "severity": "critical",
+    "category": "xss",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-xss-006",
+    "pattern": "(?i)<embed[^>]*>",
+    "description": "XSS - Embed Tag",
+    "severity": "high",
+    "category": "xss",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-xss-007",
+    "pattern": "(?i)<object[^>]*>",
+    "description": "XSS - Object Tag",
+    "severity": "high",
+    "category": "xss",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-xss-008",
+    "pattern": "(?i)<applet[^>]*>",
+    "description": "XSS - Applet Tag",
+    "severity": "high",
+    "category": "xss",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-xss-009",
+    "pattern": "(?i)document\\.write\\s*\\(",
+    "description": "XSS - document.write",
+    "severity": "high",
+    "category": "xss",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-xss-010",
+    "pattern": "(?i)document\\.writeln\\s*\\(",
+    "description": "XSS - document.writeln",
+    "severity": "high",
+    "category": "xss",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-xss-011",
+    "pattern": "(?i)innerHTML\\s*=",
+    "description": "XSS - innerHTML Assignment",
+    "severity": "high",
+    "category": "xss",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-xss-012",
+    "pattern": "(?i)outerHTML\\s*=",
+    "description": "XSS - outerHTML Assignment",
+    "severity": "high",
+    "category": "xss",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-xss-013",
+    "pattern": "(?i)<img[^>]+src\\s*=\\s*[''\"]?javascript:",
+    "description": "XSS - Image with JavaScript",
+    "severity": "critical",
+    "category": "xss",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-xss-014",
+    "pattern": "(?i)<svg[^>]*onload",
+    "description": "XSS - SVG onload",
+    "severity": "critical",
+    "category": "xss",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-xss-015",
+    "pattern": "(?i)<body[^>]*onload",
+    "description": "XSS - Body onload",
+    "severity": "critical",
+    "category": "xss",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-xss-016",
+    "pattern": "(?i)<input[^>]*onfocus",
+    "description": "XSS - Input onfocus",
+    "severity": "high",
+    "category": "xss",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-xss-017",
+    "pattern": "(?i)data:text/html",
+    "description": "XSS - Data URI HTML",
+    "severity": "critical",
+    "category": "xss",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-xss-018",
+    "pattern": "(?i)data:image/svg\\+xml",
+    "description": "XSS - Data URI SVG",
+    "severity": "high",
+    "category": "xss",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-xss-019",
+    "pattern": "(?i)<style[^>]*>.*javascript:",
+    "description": "XSS - Style with JavaScript",
+    "severity": "high",
+    "category": "xss",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-xss-020",
+    "pattern": "(?i)expression\\s*\\(",
+    "description": "XSS - CSS Expression",
+    "severity": "high",
+    "category": "xss",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-xss-021",
+    "pattern": "(?i)@import\\s+[''\"]?javascript:",
+    "description": "XSS - CSS @import with JavaScript",
+    "severity": "high",
+    "category": "xss",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-xss-022",
+    "pattern": "(?i)<meta[^>]+http-equiv\\s*=\\s*[''\"]?refresh",
+    "description": "XSS - Meta Refresh",
+    "severity": "medium",
+    "category": "xss",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-xss-023",
+    "pattern": "(?i)<meta[^>]+content\\s*=\\s*[^>]*javascript:",
+    "description": "XSS - Meta with JavaScript",
+    "severity": "critical",
+    "category": "xss",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-xss-024",
+    "pattern": "(?i)<form[^>]+action\\s*=\\s*[''\"]?javascript:",
+    "description": "XSS - Form Action JavaScript",
+    "severity": "critical",
+    "category": "xss",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-xss-025",
+    "pattern": "(?i)<input[^>]+formaction\\s*=\\s*[''\"]?javascript:",
+    "description": "XSS - Input Form Action",
+    "severity": "high",
+    "category": "xss",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-xss-026",
+    "pattern": "(?i)<link[^>]+href\\s*=\\s*[''\"]?javascript:",
+    "description": "XSS - Link href JavaScript",
+    "severity": "high",
+    "category": "xss",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  },
+  {
+    "id": "wm-xss-027",
+    "pattern": "(?i)<a[^>]+href\\s*=\\s*[''\"]?javascript:",
+    "description": "XSS - Anchor href JavaScript",
+    "severity": "high",
+    "category": "xss",
+    "enabled": true,
+    "created_at": "2026-01-15T23:32:11.246612+00:00",
+    "updated_at": "2026-01-15T23:32:11.246612+00:00"
+  }
+]

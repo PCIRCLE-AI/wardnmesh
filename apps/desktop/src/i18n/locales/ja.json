@@ -1,0 +1,181 @@
+{
+  "common": {
+    "appName": "WardnMesh",
+    "loading": "読み込み中...",
+    "error": "エラー",
+    "success": "成功",
+    "next": "次へ",
+    "back": "戻る",
+    "finish": "完了",
+    "cancel": "キャンセル",
+    "close": "閉じる",
+    "save": "保存",
+    "activate": "アクティベート",
+    "deactivate": "無効化"
+  },
+  "activation": {
+    "title": "WardnMeshへようこそ",
+    "subtitle": "AIエージェントセキュリティモニター",
+    "apiKeyLabel": "APIキーを入力",
+    "apiKeyPlaceholder": "sk_live_xxxxxxxxxxxxxxxx",
+    "apiKeyError": "APIキーを入力してください",
+    "invalidKeyError": "無効なAPIキーです。確認して再試行してください。",
+    "activateButton": "WardnMeshをアクティベート",
+    "activating": "アクティベート中...",
+    "divider": "または",
+    "noAccountYet": "アカウントをお持ちでないですか？",
+    "signUpButton": "無料でサインアップ",
+    "signUpSubtext": "無料プランで始める - クレジットカード不要",
+    "needHelp": "ヘルプが必要ですか？ドキュメントを見る"
+  },
+  "setupWizard": {
+    "welcome": {
+      "title": "WardnMeshへようこそ",
+      "subtitle": "3つの簡単なステップで保護を開始",
+      "feature1Title": "リアルタイム保護",
+      "feature1Desc": "脅威をリアルタイムで監視してブロック",
+      "feature2Title": "即時アラート",
+      "feature2Desc": "攻撃がブロックされたら即座に通知",
+      "feature3Title": "使用状況分析",
+      "feature3Desc": "エージェントのセキュリティ指標を追跡",
+      "getStarted": "始める"
+    },
+    "systemCheck": {
+      "title": "システムチェック",
+      "subtitle": "環境を確認中",
+      "checking": "システムをチェック中...",
+      "os": "オペレーティングシステム",
+      "arch": "アーキテクチャ",
+      "cli": "WardnMesh CLI",
+      "node": "Node.js",
+      "python": "Python",
+      "installed": "インストール済み",
+      "notInstalled": "未インストール",
+      "notFound": "見つかりません",
+      "version": "バージョン",
+      "checking_status": "チェック中...",
+      "scanPrompt": "下のボタンをクリックしてシステムをスキャン",
+      "scanning": "スキャン中...",
+      "scanButton": "システムをスキャン",
+      "continueButton": "続ける"
+    },
+    "cliInstall": {
+      "title": "CLIをインストール",
+      "subtitle": "CLIがエージェントをリアルタイムで監視します",
+      "alreadyInstalled": "CLIはすでにインストールされています",
+      "installed": "CLIインストール済み",
+      "version": "バージョン",
+      "platform": "プラットフォーム",
+      "whatWillBeInstalled": "インストールされる内容",
+      "cliBinary": "WardnMesh CLIバイナリ",
+      "pathConfig": "PATH設定",
+      "pathNote": "インストール後、PATH変更を反映するためにターミナルの再起動が必要な場合があります。",
+      "installButton": "WardnMesh CLIをインストール",
+      "installing": "インストール中...",
+      "installSuccess": "CLIのインストールが完了しました！",
+      "installError": "インストールに失敗しました。再試行してください。",
+      "installedPath": "インストール先：",
+      "versionInstalled": "バージョン：",
+      "pathInstructions": "PATHに追加",
+      "skipStep": "このステップをスキップ（後でインストール）",
+      "continueButton": "続ける"
+    },
+    "sdkInstall": {
+      "title": "SDKをインストール（オプション）",
+      "subtitle": "インストールするSDKを選択",
+      "nodeTitle": "Node.js SDK",
+      "nodeDesc": "JavaScript/TypeScript AIエージェント用",
+      "pythonTitle": "Python SDK",
+      "pythonDesc": "Python AIエージェント用（ML検出を含む）",
+      "nodeNotDetected": "Node.jsが検出されません",
+      "pythonNotDetected": "Pythonが検出されません",
+      "installButton": "{{sdk}} SDKをインストール",
+      "installButtonText": "インストール",
+      "installing": "インストール中...",
+      "installed": "インストール済み",
+      "installError": "インストール失敗",
+      "tip": "このステップをスキップして、後でダッシュボードからSDKをインストールできます。",
+      "continueButton": "続ける",
+      "skipForNow": "今はスキップ",
+      "skipButton": "SDKインストールをスキップ"
+    },
+    "auth": {
+      "title": "認証",
+      "subtitle": "APIキーを入力して保護を有効化",
+      "apiKeyLabel": "APIキー",
+      "apiKeyPlaceholder": "sk_live_xxxxxxxxxxxxxxxx",
+      "apiKeyError": "APIキーは「sk_live_」または「sk_test_」で始まる必要があります",
+      "helpText": "APIキーは",
+      "dashboardLink": "ダッシュボード設定",
+      "noAccount": "アカウントをお持ちでないですか？",
+      "signUpLink": "無料でサインアップ",
+      "activateButton": "アクティベート",
+      "validating": "検証中..."
+    },
+    "complete": {
+      "title": "設定完了！",
+      "subtitle": "WardnMeshがAIエージェントを保護しています",
+      "nextSteps": "次のステップ",
+      "step1Title": "AIエージェントを実行",
+      "step1Desc": "Claude CodeまたはAIツールを起動",
+      "step2Title": "トレイアイコンを確認",
+      "step2Desc": "WardnMeshアイコンをクリックしてライブ統計を表示",
+      "step3Title": "ダッシュボードを表示",
+      "step3Desc": "local Dashboardで詳細分析を確認",
+      "openDashboard": "ダッシュボードを開く",
+      "finishButton": "セットアップを完了"
+    }
+  },
+  "trayPanel": {
+    "notActivated": "未アクティベート",
+    "activatedTitle": "WardnMesh アクティブ",
+    "protectedTitle": "保護中",
+    "unprotectedTitle": "未保護",
+    "toggleProtection": "保護を切り替え",
+    "protectionLevel": "保護レベル",
+    "protectionLevels": {
+      "LOW": "低",
+      "MEDIUM": "中",
+      "HIGH": "高"
+    },
+    "stats": {
+      "blockedToday": "本日ブロック数",
+      "toolCalls": "ツール呼び出し",
+      "violations": "違反"
+    },
+    "violations": {
+      "title": "最近の違反",
+      "empty": "違反は検出されていません",
+      "threatLevel": "脅威レベル",
+      "threatLevels": {
+        "CRITICAL": "重大",
+        "HIGH": "高",
+        "MEDIUM": "中",
+        "LOW": "低"
+      },
+      "action": "アクション",
+      "actions": {
+        "BLOCKED": "ブロック済み",
+        "LOGGED": "記録済み",
+        "ALLOWED": "許可済み"
+      }
+    },
+    "menu": {
+      "openDashboard": "ダッシュボードを開く",
+      "settings": "設定",
+      "deactivate": "無効化"
+    }
+  },
+  "notifications": {
+    "threatBlocked": "🛡️ WardnMesh 脅威をブロック",
+    "threatMessage": "{{level}}の脅威：{{tool}} - {{reason}}"
+  },
+  "errors": {
+    "generic": "エラーが発生しました。再試行してください。",
+    "networkError": "ネットワークエラー。接続を確認してください。",
+    "apiKeyInvalid": "無効なAPIキー",
+    "apiKeyRevoked": "APIキーが取り消されたか、停止されています",
+    "tooManyAttempts": "試行回数が多すぎます。しばらくお待ちください。",
+    "activationFailed": "アクティベートに失敗しました。再試行してください。"
+  }
+}

@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+/* WardnMesh Desktop Theme */
+@theme {
+  --color-brand: #00ffcc;
+  --color-brand-dark: #00cc99;
+  --color-danger: #ff4444;
+  --color-warning: #ffaa00;
+  --color-success: #00ff88;
+  --color-bg: #0a0a0f;
+  --color-bg-secondary: #14141f;
+  --color-bg-tertiary: #1e1e2d;
+  --color-text: #ffffff;
+  --color-text-muted: #ccddee;
+  --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Base styles */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--color-text);
+  font-family: var(--font-family-sans);
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  height: 100%;
+}
+
+/* Tray panel container */
+.tray-panel {
+  width: 350px;
+  min-height: 400px;
+  max-height: 650px;
+  height: 100%;
+  overflow-y: auto;
+  background: rgba(10, 10, 15, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-bg-tertiary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* Animations */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px var(--color-brand); }
+  50% { box-shadow: 0 0 16px var(--color-brand); }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fade-in 0.2s ease-out;
+}

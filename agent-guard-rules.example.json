@@ -1,0 +1,27 @@
+[
+  {
+    "id": "block-whoami",
+    "name": "Block Whoami",
+    "category": "safety",
+    "severity": "critical",
+    "description": "Prevent usage of whoami command",
+    "detector": {
+      "type": "content_analysis",
+      "config": {
+        "logic": "contains_suspicious",
+        "suspiciousPatterns": ["whoami"]
+      }
+    },
+    "escalation": {
+      "1": "block"
+    },
+    "autofix": {
+      "enabled": true,
+      "strategy": "suggestion",
+      "agent": "agent-guard-core",
+      "params": {
+        "message": "The 'whoami' command is restricted for security reasons. If you need user context, please assume the 'agent' user."
+      }
+    }
+  }
+]

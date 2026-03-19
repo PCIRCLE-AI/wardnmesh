@@ -1,0 +1,79 @@
+{
+  "name": "@pcircle/wardnmesh",
+  "version": "1.0.0",
+  "description": "AI Agent Security Scanner — Real-time threat detection for AI coding tools",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "wardn": "./dist/cli.js"
+  },
+  "files": [
+    "dist/",
+    "data/default-threat-rules.json",
+    "LICENSE",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PCIRCLE-AI/wardnmesh.git"
+  },
+  "homepage": "https://pcircle-ai.github.io/wardnmesh/",
+  "bugs": {
+    "url": "https://github.com/PCIRCLE-AI/wardnmesh/issues"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint src/**/*.ts",
+    "format": "prettier --write src/**/*.ts",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "keywords": [
+    "security",
+    "ai-safety",
+    "cli",
+    "threat-detection",
+    "claude-code",
+    "wardnmesh"
+  ],
+  "author": "PCircle AI",
+  "license": "AGPL-3.0",
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.3",
+    "@eslint/js": "^9.39.2",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^20.0.0",
+    "@types/p-limit": "^2.1.0",
+    "@types/semver": "^7.7.1",
+    "@types/uuid": "^10.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.52.0",
+    "@typescript-eslint/parser": "^8.55.0",
+    "@typescript-eslint/typescript-estree": "^8.55.0",
+    "async-mutex": "^0.5.0",
+    "eslint": "^9.39.2",
+    "jest": "^30.2.0",
+    "p-limit": "^7.3.0",
+    "prettier": "^3.0.0",
+    "semver": "^7.7.4",
+    "ts-jest": "^29.4.6",
+    "typescript": "^5.3.0",
+    "typescript-eslint": "^8.53.0",
+    "vitest": "^4.0.17"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.71.2",
+    "@modelcontextprotocol/sdk": "^1.25.2",
+    "@types/glob": "^8.1.0",
+    "@types/inquirer": "^9.0.9",
+    "better-sqlite3": "^12.8.0",
+    "chalk": "4.1.2",
+    "glob": "^13.0.0",
+    "inquirer": "^13.1.0",
+    "uuid": "8.3.2",
+    "zod": "^4.3.5"
+  }
+}
